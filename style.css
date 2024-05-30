@@ -75,7 +75,7 @@ h2 {
 .output-list-item {
     display: flex;
     align-items: center;
-    padding-left: 15px;
+    padding: 0px 15px 0px 15px;
     width: 100%;
     height: 70px;
     box-sizing: content-box;
@@ -83,8 +83,42 @@ h2 {
     font-weight: 450;
     background-color: rgb(241, 241, 241);
     color: var(--text-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .output-list-item:nth-child(n+2) {
     margin-top: 8px;
 }
+
+.heading-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+#remove-all {
+    border: none;
+    background: none;
+    padding: 0px;
+    color: rgb(78, 137, 246);
+    cursor: pointer;
+}
+
+#close {
+    display: none;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: url(close.svg);
+    background-size: cover;
+}
+
+#close:hover {
+    transform: rotate(45deg);
+    transition: transform 0.2s linear;
+}
+

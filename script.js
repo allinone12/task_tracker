@@ -1,16 +1,30 @@
 const button = document.querySelector('button');
 const list = document.getElementById('list');
+const remove = document.getElementById('remove-all');
+const closeTask = document.getElementById('close');
 
-function btn() {
+button.addEventListener('click', () => {
   let task = document.querySelector('.input').value;
+  const closeBtn = closeTask.cloneNode(true);
   const newItem = document.createElement('li');
   newItem.classList.add('output-list-item');
-  newItem.innerText = task;
+  closeBtn.onclick = () => {
+    newItem.remove();
+  }
+  if(task === "") {
+    return false;
+  } else {
+    newItem.innerText = task;
+    newItem.appendChild(closeBtn);
+    closeBtn.style.display = 'block';
+  }
   list.insertBefore(newItem, list.firstChild);
-  document.querySelector('.input').value = '';
-}
+  document.querySelector('.input').value = '';  
+});
 
-button.addEventListener('click', btn);
+remove.addEventListener('click', () => {
+  list.innerHTML = '';
+});
 
 input.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
